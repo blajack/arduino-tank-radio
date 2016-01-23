@@ -3,13 +3,7 @@
     // робота с радио     //
     // пультом            //
     ////////////////////////
-    // Не работал при исп-//
-    // ользовании 3 выхода//
-    // сейчас работает    //
-    // cократил дельту    //
-    // разности при пово- //
-    // роте               //
-    ////////////////////////
+
 
 // библиотека для приемника
 #include <VirtualWire.h> 
@@ -160,13 +154,13 @@ int robo_forward ()
   // если переменная Х больше нуля, то едем вправо 
   if (xVal>=0)
   {
-   speedRight = abs(yVal - abs(xVal)); //убрал разность
+   speedRight = abs(yVal - abs(xVal)); 
    speedLeft =  abs(yVal + xVal);
   }
   else
   {
     speedRight = abs(yVal + abs(xVal));
-    speedLeft =  abs(yVal - abs(xVal)*1.1); // убрал разность
+    speedLeft =  abs(yVal - abs(xVal)); 
   }
   
   Serial.println("****************");
@@ -198,11 +192,11 @@ int robo_back ()
   if (xVal>=0)
     {
       speedRight = abs(yVal) + xVal;
-      speedLeft =  abs(yVal) ;//- xVal/2;
+      speedLeft =  abs(yVal) - xVal/2;
     }
   else
     {
-      speedRight = abs(yVal) ;//- abs(xVal/2);
+      speedRight = abs(yVal) - abs(xVal/2);
       speedLeft =  abs(yVal) + abs(xVal);
     }
 
